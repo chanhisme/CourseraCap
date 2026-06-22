@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chanhisme | Personal Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Chanhisme<span>.</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Extra 1: Dark/Light Mode Theme Toggle Button -->
+            <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme">
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1 class="greeting">Hi, I'm <span class="highlight">Chanhisme</span></h1>
+                <h2 class="subtitle">Full Stack Developer / Open Source Enthusiast</h2>
+                <p class="intro">I build modern, scalable, and beautiful web applications. Let's create something amazing together.</p>
+                <a href="#projects" class="btn btn-primary">View My Works</a>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="img-placeholder">Image</div>
+                    </div>
+                    <div class="about-text">
+                        <p>I am a passionate developer with a knack for turning complex problems into elegant, accessible, and performant solutions. I love open-source software and thrive in building dynamic web apps from the ground up.</p>
+                        <h3>Core Skills</h3>
+                        <div class="skills-badges">
+                            <span class="badge">HTML5</span>
+                            <span class="badge">CSS3 / Flexbox / Grid</span>
+                            <span class="badge">JavaScript (ES6+)</span>
+                            <span class="badge">React / Next.js</span>
+                            <span class="badge">Node.js</span>
+                            <span class="badge">Git / GitHub</span>
+                        </div>
+                        <a href="#" class="btn btn-secondary mt-1">Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Stats Section -->
+        <section id="stats" class="stats section">
+            <div class="container">
+                <h2 class="section-title">GitHub Statistics</h2>
+                <div class="stats-grid">
+                    <img id="github-stats-card" src="https://github-readme-stats.vercel.app/api?username=chanhisme&show_icons=true&theme=default&hide_border=true&bg_color=ffffff00" alt="Chanhisme GitHub Stats">
+                    <img id="github-langs-card" src="https://github-readme-stats.vercel.app/api/top-langs/?username=chanhisme&layout=compact&theme=default&hide_border=true&bg_color=ffffff00" alt="Top Languages">
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section bg-alt">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-desc">Automatically synced with GitHub API.</p>
+                
+                <!-- Loading State -->
+                <div id="projects-loading" class="loading-state">Loading repositories...</div>
+                <!-- Error State -->
+                <div id="projects-error" class="error-state" style="display: none;">Failed to load projects. Please try again later.</div>
+                
+                <!-- Projects Grid -->
+                <div id="projects-grid" class="projects-grid">
+                    <!-- Cards will be dynamically injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-wrapper">
+                    <!-- Form with Advanced Validation -->
+                    <form id="contact-form" class="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe">
+                            <span class="error-tooltip" id="name-error">Name is required</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com">
+                            <span class="error-tooltip" id="email-error">Valid email is required</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message here..."></textarea>
+                            <span class="error-tooltip" id="message-error">Message is required</span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Chanhisme. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/chanhisme" target="_blank" rel="noopener">GitHub</a>
+                <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="mailto:contact@chanhisme.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Extra 4: Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top btn-icon" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
