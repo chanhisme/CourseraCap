@@ -54,6 +54,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorState = document.getElementById('projects-error');
     const githubUsername = 'chanhisme'; // Provided by user
 
+    /* =========================================================================
+       Custom Brand Integration: Dynamically fetch Profile Avatar & Bio
+       ========================================================================= */
+    async function fetchGitHubProfile() {
+        try {
+            const response = await fetch(`https://api.github.com/users/${githubUsername}`);
+            if (response.ok) {
+                const profile = await response.json();
+                
+                const avatarImg = document.getElementById('profile-avatar');
+                const avatarPlaceholder = document.getElementById('avatar-placeholder');
+                const bioText = document.getElementById('profile-bio');
+                
+                if (avatarImg && profile.avatar_url) {
+                    avatarImg.src = profile.avatar_url;
+                    avatarImg.style.display = 'block';
+                    if (avatarPlaceholder) avatarPlaceholder.style.display = 'none';
+                }
+                
+                // If user has a GitHub bio, use it. Otherwise, keep the default one.
+                if (bioText && profile.bio) {
+                    bioText.textContent = profile.bio;
+                }
+            }
+        } catch (error) {
+            console.error('Error fetching profile:', error);
+        }
+    }
+    fetchGitHubProfile();
+
     const externalReposToFetch = [
         'hoangphamphuc59/gr10salemanage',
         'hdyui/Bug_Killer_Project_TrainC'
